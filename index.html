@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Lvivbooking</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <h1 class="visuallyhidden">І знову Львів! Знайди житло</h1>
+  </header>
+
+  <main>
+    <section class="map map--faded">
+      <div class="map__pins">
+        <div class="map__pinsoverlay">
+          <h2>І знову Львів!</h2>
+        </div>
+
+        <button class="map__pin map__pin--main">
+          <img src="img/main-pin-image.png" width="40" height="44" draggable="false">
+          <svg viewBox="0 0 70 70">
+            <defs>
+              <path d="M35,35m-23,0a23,23 0 1,1 46,0a23,23 0 1,1 -46,0" id="tophalf" />
+            </defs>
+
+            <ellipse cx="35" cy="35" rx="35" ry="35" fill="rgba(255, 86, 53, 0.7)" />
+            <text>
+              <textPath xlink:href="#tophalf" startOffset="0">Постав мене куди-нибудь</textPath>
+            </text>
+          </svg>
+        </button>
+      </div>
+
+      <div class="map__filters-container">
+        <form action="#" class="map__filters" autocomplete="off">
+          <select name="housing-type" id="housing-type" class="map__filter" disabled>
+            <option value="any" selected>Любий тип житла</option>
+            <option value="flat">Квартира</option>
+            <option value="house">Дім</option>
+            <option value="bungalo">Сарай</option>
+          </select>
+
+          <select name="housing-price" id="housing-price" class="map__filter" disabled>
+            <option value="any" selected>Люба</option>
+            <option value="low">0 - 500грн</option>
+            <option value="middle">від 500 до 2500грн</option>
+            <option value="high">від 2500грн</option>
+          </select>
+
+          <select name="housing-rooms" id="housing-rooms" class="map__filter" disabled>
+            <option value="any" selected>Любе число кімнат</option>
+            <option value="1">Одна кімната</option>
+            <option value="2">Дві кімнати</option>
+            <option value="3">Три кімнати</option>
+          </select>
+
+          <select name="housing-guests" id="housing-guests" class="map__filter" disabled>
+            <option value="any" selected>Любе число гостей</option>
+            <option value="1">Один гість</option>
+            <option value="2">Два гостя</option>
+          </select>
+
+          <fieldset id="housing-features" class="map__filter-set features" disabled>
+            <input type="checkbox" name="features" value="wifi" id="filter-wifi">
+            <label class="feature feature--wifi" for="filter-wifi">Wi-Fi</label>
+
+            <input type="checkbox" name="features" value="dishwasher" id="filter-dishwasher">
+            <label class="feature feature--dishwasher" for="filter-dishwasher">Посудомийна машина</label>
+
+            <input type="checkbox" name="features" value="parking" id="filter-parking">
+            <label class="feature feature--parking" for="filter-parking">Парковка</label>
+
+            <input type="checkbox" name="features" value="washer" id="filter-washer">
+            <label class="feature feature--washer" for="filter-washer">Пральна машина</label>
+
+            <input type="checkbox" name="features" value="elevator" id="filter-elevator">
+            <label class="feature feature--elevator" for="filter-elevator">Ліфт</label>
+
+            <input type="checkbox" name="features" value="conditioner" id="filter-conditioner">
+            <label class="feature feature--conditioner" for="filter-conditioner">Кондиціонер</label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <div class="notice">
+      <h2 class="notice__title">Ваше оголошення</h2>
+
+      <form class="notice__form notice__form--disabled" method="post" enctype="multipart/form-data" autocomplete="off">
+        <fieldset class="notice__header" disabled>
+          <legend>Ваша фотографія (для карти)</legend>
+          <div class="notice__photo">
+            <div class="upload">
+              <div class="notice__preview">
+                <img src="img/muffin.png" alt="Аватар пользователя" width="40" height="44">
+              </div>
+              <input type="file" id="avatar">
+              <label class="drop-zone" for="avatar">Загрузіть або&nbsp;перенесіть сюди фото</label>
+              <p class="notice__info">Заповніть всі обов`язкові поля, поставте цену, загрузіть фотографії. Придумайте
+                інтересний опис. Це зробить оголошення більш живим и привабливим. Оголошення повинно давати гостям повне
+                представлення про ваше житло.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__element form__element--wide" disabled>
+          <label for="title">Заголовок оголошення</label>
+          <input id="title" name="title" type="text" placeholder="Мила, затишна квартирка в центрі Львова">
+        </fieldset>
+
+        <fieldset class="form__element form__element--wide" disabled>
+          <label for="address">Адрес</label>
+          <input id="address" name="address" type="text">
+        </fieldset>
+
+        <fieldset class="form__element" disabled>
+          <label for="type">Тип житла</label>
+          <select id="type" name="type">
+            <option value="flat" selected>Квартира</option>
+            <option value="bungalo">Лачуга</option>
+            <option value="house">Дім</option>
+            <option value="palace">Палац</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form__element" disabled>
+          <label for="price">Ціна за ніч, грн.</label>
+          <input id="price" name="price" type="number" placeholder="5000">
+        </fieldset>
+
+        <fieldset class="form__element" disabled>
+          <label for="timein">Час заїзду і виїзду</label>
+          <select id="timein" name="timein">
+            <option value="12:00" selected>Після 12</option>
+            <option value="13:00">Після 13</option>
+            <option value="14:00">Після 14</option>
+          </select>
+          <select id="timeout" name="timeout" title="Time to go out">
+            <option value="12:00" selected>Виїзд до 12</option>
+            <option value="13:00">Виїзд до 13</option>
+            <option value="14:00">Виїзд до 14</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form__element" disabled>
+          <label for="room_number">Кіл-сть кімнат</label>
+          <select id="room_number" name="rooms">
+            <option value="1" selected>1 кімната</option>
+            <option value="2">2 кімнати</option>
+            <option value="3">3 кімнати</option>
+            <option value="100">100 кімнат</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form__element" disabled>
+          <label for="capacity">Кількість місць</label>
+          <select id="capacity" name="capacity">
+            <option value="3" selected>для 3 гостей</option>
+            <option value="2">для 2 гостей</option>
+            <option value="1">для 1 гостя</option>
+            <option value="0">не для гостей</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form__element features form__element--wide" disabled>
+          <legend>Зручності: Wi-Fi, кухня, парковка, пралька, лифт, кондиціонер</legend>
+
+          <input type="checkbox" name="features" value="wifi" id="feature-wifi">
+          <label class="feature feature--wifi" for="feature-wifi">Wi-Fi</label>
+
+          <input type="checkbox" name="features" value="dishwasher" id="feature-dishwasher">
+          <label class="feature feature--dishwasher" for="feature-dishwasher">Посудомийна машина</label>
+
+          <input type="checkbox" name="features" value="parking" id="feature-parking">
+          <label class="feature feature--parking" for="feature-parking">Парковка</label>
+
+          <input type="checkbox" name="features" value="washer" id="feature-washer">
+          <label class="feature feature--washer" for="feature-washer">Пральна машина</label>
+
+          <input type="checkbox" name="features" value="elevator" id="feature-washer">
+          <label class="feature feature--elevator" for="feature-washer">Ліфт</label>
+
+          <input type="checkbox" name="features" value="conditioner" id="feature-conditioner">
+          <label class="feature feature--conditioner" for="feature-conditioner">Кондиціонер</label>
+        </fieldset>
+
+        <fieldset class="form__element form__element--wide" disabled>
+          <label for="description">Опис (не обов`язково)</label>
+          <textarea id="description" name="description"
+            placeholder="Тут розкажіть про то, яке ваше житло чудове"></textarea>
+        </fieldset>
+
+        <fieldset class="form__element form__element--wide" disabled>
+          <label>Фотографії житла</label>
+          <div class="form__photo-container">
+            <div class="upload">
+              <input type="file" id="images">
+              <label for="images" class="drop-zone">Загрузіть або&nbsp;перенесіть сюди фото</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__element form__element--submit" disabled>
+          <button class="form__submit" type="submit">Опубликовати</button>
+          або <button class="form__reset" type="reset">очистити</button>
+        </fieldset>
+      </form>
+    </div>
+  </main>
+
+
+  <template id="map-card-temp">
+    <article class="map__card popup">
+      <img src="img/avatars/user01.png" class="popup__avatar" width="70" height="70">
+      <button class="popup__close">Закрыть</button>
+      <h3 class="popup__title">Уютное гнездышко для молодоженов</h3>
+      <p><small>вул. Франка 154</small></p>
+      <p class="popup__price">5200&#x20bd;/ночь</p>
+      <h4 class="popup__type">Квартира</h4>
+      <p class="popup__text">2 комнаты для 3 гостей</p>
+      <p class="popup__text-time">Заезд после 14:00, выезд до 10:00</p>
+      <ul class="popup__features">
+        <li class="feature feature--wifi"></li>
+        <li class="feature feature--dishwasher"></li>
+        <li class="feature feature--parking"></li>
+        <li class="feature feature--washer"></li>
+        <li class="feature feature--elevator"></li>
+        <li class="feature feature--conditioner"></li>
+      </ul>
+      <p class="popup__description">Великолепная квартира-студия в центре Токио. Подходит как туристам, так и
+        бизнесменам. Квартира полностью укомплектована и недавно отремонтирована.</p>
+      <ul class="popup__pictures">
+        <li><img src=""></li>
+      </ul>
+    </article>
+
+    <button style="left: 200px; top: 400px;" class="map__pin"><img src="img/avatars/user07.png" width="40" height="40"
+        draggable="false"></button>
+  </template>
+
+  <script src="js/data.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/map.js"></script>
+
+</body>
+
+</html>

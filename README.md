@@ -2,4 +2,4 @@
 LvivBooking
 
 
-Used technolohy: HTML, CSS, JS.
+Used technology: HTML, CSS, JS.
